@@ -54,8 +54,8 @@ If you want to install a version of this demo in your local Lightstreamer Server
  * Create a directory where to deploy the PHP Remote Adapter and let call it `Deployment_PHP_Remote_Adapter`.
  * Download all the PHP source files from this project and copy them into the `Deployment_PHP_Remote_Adapter` folder.
 *  Launch Lightstreamer Server. The Server startup will complete only after a successful connection between the Proxy Data Adapter and the Remote Data Adapter.
-* Launch the PHP Remote Adapter: go to the `Deployment_PHP_Remote_Adapter` folder and launch:<BR/>
-`> php helloworld.php`<BR/>
+* Launch the PHP Remote Adapter: open a command line to the `Deployment_PHP_Remote_Adapter` folder and launch:<BR/>
+`> php chat.php --host localhost --metadata_rrport 6663 --data_rrport 6661 --data_notifport 6662`<BR/>
 * IMPORTANT: The demo requires  the [pthreads](http://php.net/manual/en/intro.pthreads.php) module is installed into your php  environment. You can get detailed information on how to properly install the module [here](http://php.net/manual/en/pthreads.setup.php). The demo has been succesfully tested on the following environments:
  * Windows 7 and 8, with PHP version [VC 11 Thread Safe for X86](http://windows.php.net/downloads/releases/php-5.6.5-Win32-VC11-x86.zip) and pthreed module version [2.0.10-5.6-ts-vc11](http://windows.php.net/downloads/pecl/releases/pthreads/2.0.10/php_pthreads-2.0.10-5.6-ts-vc11-x86.zip)
  * Ubuntu Linux version 14.10, with PHP version 5.6.5 (compiled with the *--enable-maintainer-zts* flag) and pthread module version 2.0.10, installed as a pecl extension.
