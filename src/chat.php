@@ -152,7 +152,7 @@ Usage: php chat.php --host <host> --metadata_rrport <metadata_rrport> --data_rrp
 EOT;
 }
 
-/* Mandatory comman line arguments */
+/* Mandatory command line arguments */
 $longoptions = array(
     "host:",
     "metadata_rrport:",
@@ -175,14 +175,15 @@ try {
     
     $data_adapter = new ChataDataAdapter();
     
-    $dataprovider_server = new DataProviderServer($data_adapter);
-    $dataproviderServerStarter = new StarterServer($host, $data_rrport, $data_notifport);
-    $dataproviderServerStarter->launch($dataprovider_server);
-    
     $metadata_adapter = new ChatMetadataAdapter($data_adapter);
     $metadata_server = new MetaDataProviderServer($metadata_adapter);
     $metadataProvidereServerStarter = new StarterServer($host, $metadata_rrport);
-    $metadataProvidereServerStarter->launch($metadata_server);
+    $metadataProvidereServerStarter->start($metadata_server);
+    
+    $dataprovider_server = new DataProviderServer($data_adapter);
+    $dataproviderServerStarter = new StarterServer($host, $data_rrport, $data_notifport);
+    $dataproviderServerStarter->start($dataprovider_server);
+    
 } catch (Exception $e) {
     echo "Caught exception {$e->getMessage()}\n";
 }
