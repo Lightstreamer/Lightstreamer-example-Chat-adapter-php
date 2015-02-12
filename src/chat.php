@@ -1,10 +1,5 @@
 <?php
-
-function __autoload($classname)
-{
-    $file = "./" . str_replace("\\", "/", $classname) . ".php";
-    require $file;
-}
+require 'autoload.php';
 use Lightstreamer\remote\metadata\LiteralBasedProvider;
 use Lightstreamer\remote\MetaDataProviderServer;
 use Lightstreamer\remote\DataProviderServer;
@@ -168,7 +163,6 @@ if (count($options) != 4) {
 
 try {
     $host = $options["host"];
-    
     $metadata_rrport = $options["metadata_rrport"];
     $data_rrport = $options["data_rrport"];
     $data_notifport = $options["data_notifport"];
