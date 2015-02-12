@@ -15,6 +15,7 @@ This project shows the use of PHP classes and interfaces already provided in the
 
 The code example is structured as follows:
 * The `chat.php` file, which is the entry point of the example.
+* The `autoload.php` file, which loads the required classes. 
 * The "lightstreamer" hierarchy directory structure, containing all the PHP classes (a file for each class), which implement the ARI Protocol.
 
 #### The Adapter Set Configuration
