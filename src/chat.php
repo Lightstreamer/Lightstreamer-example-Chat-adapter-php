@@ -1,11 +1,11 @@
 <?php
 require 'autoload.php';
-use Lightstreamer\remote\metadata\LiteralBasedProvider;
-use Lightstreamer\remote\MetaDataProviderServer;
-use Lightstreamer\remote\DataProviderServer;
-use Lightstreamer\remote\IDataProvider;
-use Lightstreamer\remote\ItemEventListener;
-use Lightstreamer\remote\Server;
+use Lightstreamer\adapters\remote\metadata\LiteralBasedProvider;
+use Lightstreamer\adapters\remote\MetaDataProviderServer;
+use Lightstreamer\adapters\remote\DataProviderServer;
+use Lightstreamer\adapters\remote\IDataProvider;
+use Lightstreamer\adapters\remote\ItemEventListener;
+use Lightstreamer\adapters\remote\Server;
 
 class ChatMetadataAdapter extends LiteralBasedProvider
 {
