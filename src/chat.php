@@ -6,6 +6,7 @@ use Lightstreamer\adapters\remote\DataProviderServer;
 use Lightstreamer\adapters\remote\IDataProvider;
 use Lightstreamer\adapters\remote\ItemEventListener;
 use Lightstreamer\adapters\remote\Server;
+use lightstreamer\adapters\remote\SubscriptionException;
 
 class ChatMetadataAdapter extends LiteralBasedProvider
 {
@@ -19,37 +20,46 @@ class ChatMetadataAdapter extends LiteralBasedProvider
 
     public function notifySessionClose($session_id)
     {
-        echo "Closing session $session_id\n";
+        /* Discard session infrormation */
         unset($this[$session_id]);
-        echo "Session closed\n";
     }
 
     public function notifyNewSession($user, $session_id, $session_info)
     {
-        echo "Notify new session\n";
+        /* Register the session details on itself, as LiteralBasedProvider extends \Stackable */
         $this[$session_id] = $session_info;
-        echo "New session <$session_id> for user <$user>\n";
-        echo "USER_AGENT <{$session_info['USER_AGENT']}>\n";
-        echo "REMOTE_IP <{$session_info['REMOTE_IP']}>\n";
-        echo "Created new session $session_id";
     }
 
     public function notifyUserMessage($user, $session_id, $message)
     {
-        $message = explode("|", $message)[1];
+        /* Message must be in the form "CHAT|<message>" */
+        $messageTokens = explode("|", $message);
+        if (count($messageTokens) != 2) {
+            throw new NotificationException("Wrong message received");
+        }
+        
+        if ($messageTokens[0] != "CHAT") {
+            throw new NotificationException("Wrong message received");
+        }
+        
+        /* Retrieve the session infos associated to the session_id */
         $session_info = $this[$session_id];
+        
+        /* Extract the IP and the user agent, to identify the originator of the message */
         $ip = $session_info["REMOTE_IP"];
         $ua = $session_info["USER_AGENT"];
-        $this->data_adapter->sendMessage($ip, $ua, $message);
+        
+        /* Send the message to be pushed to the browsers */
+        $this->data_adapter->sendMessage($ip, $ua, $messageTokens[1]);
     }
 }
 
 class ChataDataAdapter extends \Stackable implements IDataProvider
 {
 
-    private $subscribed;
+    const ITEM_NAME = "chat_room";
 
-    private $control;
+    private $subscribed;
 
     private $listener;
 
@@ -58,7 +68,11 @@ class ChataDataAdapter extends \Stackable implements IDataProvider
 
     public function subscribe($item)
     {
-        $this->subscribed = $item;
+        if ($item == "chat_room") {
+            $this->subscribed = $item;
+        } else {
+            throw new SubscriptionException("No such item");
+        }
     }
 
     public function unsubscribe($item)
@@ -148,6 +162,7 @@ EOT;
 }
 
 /* Mandatory command line arguments */
+
 $longoptions = array(
     "host:",
     "metadata_rrport:",
@@ -177,7 +192,6 @@ try {
     $dataprovider_server = new DataProviderServer($data_adapter);
     $dataproviderServerStarter = new StarterServer($host, $data_rrport, $data_notifport);
     $dataproviderServerStarter->start($dataprovider_server);
-    
 } catch (Exception $e) {
     echo "Caught exception {$e->getMessage()}\n";
 }
