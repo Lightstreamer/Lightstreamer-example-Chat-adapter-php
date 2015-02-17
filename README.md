@@ -73,6 +73,10 @@ should become like this:<BR/>
 `lsClient.connectionSharing.enableSharing("RemoteChatDemoConnection", "ATTACH", "CREATE");`
     * Open a browser window and go to: [http://localhost:8080/ChatDemo](http://localhost:8080/ChatDemo)
 
+## See Also
+
+* [Writing Remote PHP Adapters for Lightstreamer](http://blog.lightstreamer.com/2015/02/writing-remote-php-adapters-for.html)
+
 ### Clients Using This Adapter
 <!-- START RELATED_ENTRIES -->
 
