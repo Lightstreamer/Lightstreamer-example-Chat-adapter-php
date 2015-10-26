@@ -3,13 +3,13 @@
 
 The *Lightstreamer Basic Chat Demo* is a very simple chat application, based on [Lightstreamer](http://www.lightstreamer.com) for its real-time communication needs.
 
-This project contains the source code and all the resources needed to deploy a [PHP](http://php.net/) port of the [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java). In particular, a PHP-CLI version of the Adapter Set will be shown.
+This project contains the source code and all the resources needed to deploy a [PHP](http://php.net/) port of the [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java). In particular, a PHP-CLI version of the Adapter Set will be shown.
 
-As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
+As an example of a client using this adapter, you may refer to the [Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-chat-client-javascript) and view the corresponding [Live Demo](http://demos.lightstreamer.com/ChatDemo/).
 
 ## Details
 
-This project shows the use of PHP classes and interfaces already provided in the [Lightstreamer - "Hello World" Tutorial - PHP Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-php), such as IDataProvider, DataProviderServer, LiteralBasedProvider and MetadataProviderServer.
+This project shows the use of PHP classes and interfaces already provided in the [Lightstreamer - "Hello World" Tutorial - PHP Adapter](https://github.com/Lightstreamer/Lightstreamer-example-HelloWorld-adapter-php), such as IDataProvider, DataProviderServer, LiteralBasedProvider and MetadataProviderServer.
 
 ### Dig the Code
 
@@ -48,7 +48,7 @@ The `adapters.xml` file for this demo should look like:
 ## Install
 If you want to install a version of this demo in your local Lightstreamer Server, follow these steps:
 * Download *Lightstreamer Server* (Lightstreamer Server comes with a free non-expiring demo license for 20 connected users) from [Lightstreamer Download page](http://www.lightstreamer.com/download.htm), and install it, as explained in the `GETTING_STARTED.TXT` file in the installation home directory.
-* Get the `deploy.zip` file installed from [releases](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-php/releases) and unzip it, obtaining the `deployment` folder.
+* Get the `deploy.zip` file installed from [releases](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-php/releases) and unzip it, obtaining the `deployment` folder.
 * Plug the Proxy Data Adapter into the Server: go to the `Deployment_LS` folder and copy the `ChatAdapterPHP` directory and all of its files to the `adapters` folder of your Lightstreamer Server installation.
 * Alternatively, you may plug the *robust* versions of the Proxy Data Adapter: go to the `Deployment_LS(robust)` folder and copy the `ChatAdapterPHP` directory and all of its files into the `adapters` folder.
 * Install the PHP Remote Adapter
@@ -60,8 +60,8 @@ If you want to install a version of this demo in your local Lightstreamer Server
 * IMPORTANT: The demo requires  the [pthreads](http://php.net/manual/en/intro.pthreads.php) module is installed into your php  environment. You can get detailed information on how to properly install the module [here](http://php.net/manual/en/pthreads.setup.php). The demo has been successfully tested on the following environments:
  * Windows 7 and 8, with PHP version [VC 11 Thread Safe for X86](http://windows.php.net/downloads/releases/archives/php-5.6.5-Win32-VC11-x86.zip) and pthreed module version [2.0.10-5.6-ts-vc11](http://windows.php.net/downloads/pecl/releases/pthreads/2.0.10/php_pthreads-2.0.10-5.6-ts-vc11-x86.zip)
  * Ubuntu Linux version 14.10, with PHP version 5.6.5 (compiled with the *--enable-maintainer-zts* flag) and pthread module version 2.0.10, installed as a pecl extension.
-* Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-php#clients-using-this-adapter).
-    * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_PHPCHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
+* Test the Adapter, launching the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) listed in [Clients Using This Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-php#clients-using-this-adapter).
+    * To make the [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript) front-end pages get data from the newly installed Adapter Set, you need to modify the front-end pages and set the required Adapter Set name to PROXY_PHPCHAT when creating the LightstreamerClient instance. So edit the `lsClient.js` file of the *Basic Chat Demo* front-end deployed under `Lightstreamer/pages/ChatDemo` and replace:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse + "//localhost:" + portToUse, "CHAT");`<BR/>
 with:<BR/>
 `var lsClient = new LightstreamerClient(protocolToUse + "//localhost:" + portToUse, "PROXY_PHPCHAT");`<BR/>
@@ -80,14 +80,14 @@ should become like this:<BR/>
 ### Clients Using This Adapter
 <!-- START RELATED_ENTRIES -->
 
-*    [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Weswit/Lightstreamer-example-Chat-client-javascript)
+*    [Lightstreamer - Basic Chat Demo - HTML Client](https://github.com/Lightstreamer/Lightstreamer-example-Chat-client-javascript)
 
 <!-- END RELATED_ENTRIES -->
 
 ### Related Projects
 
-*    [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Weswit/Lightstreamer-example-Chat-adapter-java)
-*    [Lightstreamer - "Hello World" Tutorial - PHP Adapter](https://github.com/Weswit/Lightstreamer-example-HelloWorld-adapter-php)
+*    [Lightstreamer - Basic Chat Demo - Java Adapter](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-java)
+*    [Lightstreamer - "Hello World" Tutorial - PHP Adapter](https://github.com/Lightstreamer/Lightstreamer-example-HelloWorld-adapter-php)
 
 ## Lightstreamer Compatibility Notes
 
