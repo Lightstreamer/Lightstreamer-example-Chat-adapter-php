@@ -11,7 +11,7 @@ use lightstreamer\adapters\remote\SubscriptionException;
 class ChatMetadataAdapter extends LiteralBasedProvider
 {
 
-    private $data_adaptar;
+    private $data_adapter;
 
     function __construct(ChataDataAdapter $data_adapter)
     {
