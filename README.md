@@ -91,5 +91,5 @@ should become like this:<BR/>
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer SDK for Generic Adapters version 1.7 or newer.
+* Compatible with Lightstreamer SDK for Generic Adapters version 1.7.x.
 * Compatible with Lightstreamer JavaScript Client Library version 6.0 or newer.
