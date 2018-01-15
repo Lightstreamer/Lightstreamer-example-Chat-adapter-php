@@ -91,5 +91,6 @@ should become like this:<BR/>
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer SDK for Generic Adapters version 1.7.x.
+* Compatible with Lightstreamer SDK for Generic Adapters version 1.8.0 or newer.
+* For a version of this example compatible with Lightstreamer SDK for Generic Adapters version 1.7.x, please refer to [this tag](https://github.com/Lightstreamer/Lightstreamer-example-Chat-adapter-php/tree/latest-for-ARI-1.7).
 * Compatible with Lightstreamer JavaScript Client Library version 6.0 or newer.
