@@ -32,6 +32,8 @@ The `adapters.xml` file for this demo should look like:
         <adapter_class>ROBUST_PROXY_FOR_REMOTE_ADAPTER</adapter_class>
         <classloader>log-enabled</classloader>
         <param name="request_reply_port">6663</param>
+        <param name="timeout">36000000</param>
+        <param name="connection_recovery_timeout_millis">10000</param>
     </metadata_provider>
     
     <data_provider name="CHAT_ROOM">
@@ -39,6 +41,8 @@ The `adapters.xml` file for this demo should look like:
         <classloader>log-enabled</classloader>
         <param name="request_reply_port">6661</param>
         <param name="notify_port">6662</param>
+        <param name="timeout">36000000</param>
+        <param name="connection_recovery_timeout_millis">10000</param>
     </data_provider>
 </adapters_conf>
 ```
